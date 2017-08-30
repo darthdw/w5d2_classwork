@@ -1,0 +1,13 @@
+<h1>Subs:</h1>
+
+<ul>
+<% @subs.try(:each) do |sub| %>
+<li>
+<%= link_to sub.title, sub_url(sub), method: :get %>
+<%= sub.description %>
+<%= button_to 'Edit', edit_sub_url(sub), method: :get %>
+</li>
+<% end %>
+</ul>
+
+<%= link_to 'Make New Sub!', new_sub_url, method: :get %>

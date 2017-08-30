@@ -1,0 +1,15 @@
+<h3><%=@sub.title%></h3>
+
+<%= @sub.description %>
+
+<%= button_to "Add Comment", new_comment_url , sub: @sub , method: :get %>
+
+<% @sub.comments.try(:each) do |comment| %>
+<ul>
+<li><%= comment.user %></li>
+<li><%= comment.content comment.url %></li>
+</ul>
+<% end %>
+
+<br><br>
+<%= link_to "List of Subs", subs_url, method: :get %>
